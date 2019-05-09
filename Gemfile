@@ -12,19 +12,29 @@ gem 'slim'
 gem 'econfig'
 gem 'rake'
 
-# Debugging
-gem 'pry'
+# Security
+gem 'rack-ssl-enforcer'
+gem 'rbnacl' # assumes libsodium package already installed
 
 # Communication
 gem 'http'
+gem 'redis'
+gem 'redis-rack'
 
-# Security
-gem 'rbnacl' # assumes libsodium package already installed
+# Debugging
+gem 'pry'
 
 # Development
 group :development do
   gem 'rubocop'
   gem 'rubocop-performance'
+end
+
+# Testing
+group :test do
+  gem 'minitest'
+  gem 'minitest-rg'
+  gem 'webmock'
 end
 
 group :development, :test do
