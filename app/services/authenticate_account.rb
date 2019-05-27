@@ -18,10 +18,10 @@ module Credence
       raise(UnauthorizedError) if response.code == 403
       raise if response.code != 200
 
-      account_info = response.parse['attributes']
+      account_info = response.parse['data']['attributes']
 
       {
-        account: account_info['account']['attributes'],
+        account: account_info['account'],
         auth_token: account_info['auth_token']
       }
     end
