@@ -1,10 +1,16 @@
 ---
 development:
-  API_URL: http://localhost:3000/api/v1
-  APP_URL: http://localhost:9292
+  GH_OAUTH_URL: https://github.com/login/oauth/authorize
+  GH_TOKEN_URL: https://github.com/login/oauth/access_token
+  GH_SCOPE: user:email
+  
 
 test:
-  API_URL: http://localhost:3000/api/v1
-  APP_URL: http://localhost:9292
+  GH_OAUTH_URL: https://github.com/login/oauth/authorize
+  GH_TOKEN_URL: https://github.com/login/oauth/access_token
+  GH_SCOPE: user:email
 
-# production: set all of above
+production:
+  GH_OAUTH_URL: https://github.com/login/oauth/authorize
+  GH_TOKEN_URL: https://github.com/login/oauth/access_token
+  GH_SCOPE: user:email
