@@ -18,9 +18,11 @@ describe 'Test Service Objects' do
   describe 'Find authenticated account' do
     it 'HAPPY: should find an authenticated account' do
       auth_return = {
-        'attributes' => {
-          'account' => @api_account,
-          'auth_token' => 'thisisnotarealtoken'
+        'data' => {
+          'attributes' => {
+            'account' => @api_account,
+            'auth_token' => 'thisisnotarealtoken'
+          }
         }
       }
 

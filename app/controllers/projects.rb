@@ -74,9 +74,8 @@ module Credence
             )
 
             flash[:notice] = 'Your document was added'
-          rescue StandardError => error
-            puts error.inspect
-            puts error.backtrace
+          rescue StandardError => e
+            puts "ERROR CREATING DOCUMENT: #{e.inspect}"
             flash[:error] = 'Could not add document'
           ensure
             routing.redirect @project_route

@@ -30,9 +30,11 @@ module Credence
       required(:password).filled
       required(:password_confirm).filled
 
+      # rubocop:disable Style/SymbolProc
       rule(password_entropy: [:password]) do |password|
         password.enough_entropy?
       end
+      # rubocop:enable Style/SymbolProc
 
       rule(passwords_match: %i[password password_confirm]) do |pass1, pass2|
         pass1.eql?(pass2)
