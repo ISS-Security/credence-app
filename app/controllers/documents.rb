@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'roda'
+require_relative './app'
 
 module Credence
   # Web controller for Credence API
@@ -10,8 +11,7 @@ module Credence
 
       # GET /documents/[doc_id]
       routing.get(String) do |doc_id|
-        doc_info = GetDocument.new(App.config)
-                              .call(@current_account, doc_id)
+        doc_info = GetDocument.new(App.config).call(@current_account, doc_id)
         document = Document.new(doc_info)
 
         view :document, locals: {

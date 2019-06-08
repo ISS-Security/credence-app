@@ -13,9 +13,10 @@ class AddCollaborator
   end
 
   def call(current_account:, collaborator:, project_id:)
-    response = HTTP.auth("Bearer #{current_account.auth_token}")
-                   .put("#{api_url}/projects/#{project_id}/collaborators",
-                        json: { email: collaborator[:email] })
+    response = HTTP
+      .auth("Bearer #{current_account.auth_token}")
+      .put("#{api_url}/projects/#{project_id}/collaborators",
+           json: { email: collaborator[:email] })
 
     raise CollaboratorNotAdded unless response.code == 200
   end

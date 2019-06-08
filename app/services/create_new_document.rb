@@ -14,8 +14,9 @@ class CreateNewDocument
 
   def call(current_account:, project_id:, document_data:)
     config_url = "#{api_url}/projects/#{project_id}/documents"
-    response = HTTP.auth("Bearer #{current_account.auth_token}")
-                   .post(config_url, json: document_data)
+    response = HTTP
+      .auth("Bearer #{current_account.auth_token}")
+      .post(config_url, json: document_data)
 
     response.code == 201 ? response.parse : raise
   end

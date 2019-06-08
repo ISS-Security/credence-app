@@ -9,8 +9,9 @@ class GetAllProjects
   end
 
   def call(current_account)
-    response = HTTP.auth("Bearer #{current_account.auth_token}")
-                   .get("#{@config.API_URL}/projects")
+    response = HTTP
+      .auth("Bearer #{current_account.auth_token}")
+      .get("#{@config.API_URL}/projects")
 
     response.code == 200 ? response.parse['data'] : nil
   end
