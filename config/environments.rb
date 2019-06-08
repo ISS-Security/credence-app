@@ -22,6 +22,7 @@ module Credence
     configure do
       SecureSession.setup(config)
       SecureMessage.setup(config)
+      SignedMessage.setup(config)
     end
 
     configure :production do
